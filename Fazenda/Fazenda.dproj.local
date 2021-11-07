@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/03/02 09:58:17.000.616,=C:\Users\laris\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/07/02 19:35:36.000.363,=C:\Users\laris\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/07/02 19:53:26.000.056,C:\Users\laris\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\laris\Desktop\Estil\Fazenda\UnitPrincipal.pas</Transaction>
+    <Transaction>2021/07/02 19:53:26.000.056,C:\Users\laris\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\laris\Desktop\Estil\Fazenda\UnitPrincipal.dfm</Transaction>
+    <Transaction>2021/07/02 19:59:24.000.285,C:\Users\laris\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\laris\Desktop\Estil\Fazenda\Fazenda.dproj</Transaction>
+    <Transaction>2021/07/05 20:12:58.000.818,=C:\Users\laris\Desktop\Estil\Fazenda\Unit1.pas</Transaction>
+    <Transaction>2021/07/05 20:13:12.000.007,C:\Users\laris\Desktop\Estil\Fazenda\Unit1.pas=C:\Users\laris\Desktop\Estil\Fazenda\UnitAnimais.pas</Transaction>
+    <Transaction>2021/11/03 21:15:20.000.644,=C:\Users\laris\Desktop\Estil\Fazenda\Unit1.pas</Transaction>
+    <Transaction>2021/11/03 21:16:05.000.136,C:\Users\laris\Desktop\Estil\Fazenda\Unit1.pas=C:\Users\laris\Desktop\Estil\Fazenda\UnitException.pas</Transaction>
+  </Transactions>
+</BorlandProject>

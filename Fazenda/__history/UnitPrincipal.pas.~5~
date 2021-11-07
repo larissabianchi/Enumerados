@@ -1,0 +1,48 @@
+unit UnitPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.ImageList, Vcl.ImgList,
+  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, UnitAnimais, System.Actions,
+  Vcl.ActnList, Vcl.ActnMan, IDETheme.ActnCtrls;
+
+type
+  TfrmPrincipal = class(TForm)
+    cbxAnimais: TComboBox;
+    btnEnviar: TBitBtn;
+    imgAnimal: TImage;
+    Label1: TLabel;
+    ActionManager1: TActionManager;
+    AcSair: TAction;
+    procedure btnEnviarClick(Sender: TObject);
+    procedure AcSairExecute(Sender: TObject);
+  private
+    { Private declarations }
+    FAnimais : TAnimais;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.AcSairExecute(Sender: TObject);
+begin
+  Self.Close;
+end;
+
+procedure TfrmPrincipal.btnEnviarClick(Sender: TObject);
+begin
+  FAnimais.FromString(Trim(cbxAnimais.Text));
+  ShowMessage(FAnimais.ToString);
+
+  imgAnimal.Picture.FieldAddress(FAnimais.ToImage);
+end;
+
+end.

@@ -1,0 +1,90 @@
+unit UnitAnimais;
+
+interface
+
+type
+  //Enumerado
+  TAnimais = (
+    aniBoi,
+    aniCabra,
+    aniCachorro,
+    aniCavalo,
+    aniCoelho,
+    aniGalinha,
+    aniGato,
+    aniPato,
+    aniPorco,
+    aniVaca
+  );
+
+  //Helper
+  TAnimaisHelper = record Helper for TAnimais
+    function ToImage : string;
+    function ToString : string;
+    procedure FromString(AString : string);
+  end;
+
+implementation
+
+uses
+  StrUtils, SysUtils;
+
+{ TAnimaisHelper }
+
+procedure TAnimaisHelper.FromString(AString: string);
+begin
+  case AnsiIndexStr(UpperCase(AString),
+    ['BOI','CABRA','CACHORRO','CAVALO','COELHO','GALINHA','GATO','PATO','PORCO','VACA']) of
+    0 : Self := aniBoi;
+    1 : Self := aniCabra;
+    2 : Self := aniCachorro;
+    3 : Self := aniCavalo;
+    4 : Self := aniCoelho;
+    5 : Self := aniGalinha;
+    6 : Self := aniGato;
+    7 : Self := aniPato;
+    8 : Self := aniPorco;
+    9 : Self := aniVaca;
+    else
+      raise Exception.Create('[TAnimais] - Animal não encontrado na Fazenda');
+  end;
+end;
+
+function TAnimaisHelper.ToImage: string;
+begin
+  case Self of
+    aniBoi:      Result = '\Imagens\boi.png';
+    aniCabra:    Result = '\Imagens\cabra.png';
+    aniCachorro: Result = '\Imagens\cachorro.png';
+    aniCavalo:   Result = '\Imagens\cavalo.png';
+    aniCoelho:   Result = '\Imagens\coelho.png';
+    aniGalinha:  Result = '\Imagens\galinha.png';
+    aniGato:     Result = '\Imagens\gato.png';
+    aniPato:     Result = '\Imagens\pato.png';
+    aniPorco:    Result = '\Imagens\porco.png';
+    aniVaca:     Result = '\Imagens\vaca.png';
+  end;
+
+  end;
+end;
+
+function TAnimaisHelper.ToString: string;
+begin
+  Result := 'Você escolheu ';
+  case Self of
+    aniBoi:      Result := Result + ' um Boi!';
+    aniCabra:    Result := Result + ' uma Cabra!';
+    aniCachorro: Result := Result + ' um Cachorro!';
+    aniCavalo:   Result := Result + ' um Cavalo!';
+    aniCoelho:   Result := Result + ' um Coelho!';
+    aniGalinha:  Result := Result + ' uma Galinha!';
+    aniGato:     Result := Result + ' um Gato!';
+    aniPato:     Result := Result + ' um Pato!';
+    aniPorco:    Result := Result + ' um Porco!';
+    aniVaca:     Result := Result + ' uma Vaca!';
+    else
+      raise Exception.Create('[TAnimais] - O animal não quis sair do seleiro');
+  end;
+end;
+
+end.

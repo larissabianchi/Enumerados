@@ -1,0 +1,59 @@
+unit UnitPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, System.ImageList, Vcl.ImgList,
+  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Buttons, UnitAnimais, System.Actions,
+  Vcl.ActnList, Vcl.ActnMan;
+
+type
+  TfrmPrincipal = class(TForm)
+    cbxAnimais: TComboBox;
+    btnEnviar: TBitBtn;
+    imgAnimal: TImage;
+    Label1: TLabel;
+    ActionList1: TActionList;
+    AcSair: TAction;
+    ImageList: TImageList;
+    procedure btnEnviarClick(Sender: TObject);
+    procedure AcSairExecute(Sender: TObject);
+    procedure cbxAnimaisChange(Sender: TObject);
+  private
+    { Private declarations }
+    FAnimais : TAnimais;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmPrincipal.AcSairExecute(Sender: TObject);
+begin
+  Self.Close;
+end;
+
+procedure TfrmPrincipal.btnEnviarClick(Sender: TObject);
+begin
+  FAnimais.FromString(Trim(cbxAnimais.Text));
+  ShowMessage(FAnimais.ToString);
+
+  //Mudar imagem do animal aqui
+end;
+
+procedure TfrmPrincipal.cbxAnimaisChange(Sender: TObject);
+begin
+  case cbxAnimais.ItemIndex of
+    0: ImageList.GetBitmap(0,imgAnimal.Picture.Bitmap);
+    1: ImageList.GetBitmap(1,imgAnimal.Picture.Bitmap);
+  end;
+  imgAnimal.Invalidate;
+end;
+
+end.

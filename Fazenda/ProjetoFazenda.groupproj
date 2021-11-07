@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{929C9788-4AD2-41B7-8281-C99AA1E498C7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Fazenda.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Fazenda">
+        <MSBuild Projects="Fazenda.dproj"/>
+    </Target>
+    <Target Name="Fazenda:Clean">
+        <MSBuild Projects="Fazenda.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Fazenda:Make">
+        <MSBuild Projects="Fazenda.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Fazenda"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Fazenda:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Fazenda:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -1,0 +1,104 @@
+unit UnitAnimais;
+
+interface
+
+uses UnitException;
+
+type
+  TAnimais = (
+    aniBoi,
+    aniCabra,
+    aniCachorro,
+    aniCavalo,
+    aniCoelho,
+    aniGalinha,
+    aniGato,
+    aniPato,
+    aniPorco,
+    aniVaca
+  );
+
+  TAnimaisHelper = record Helper for TAnimais
+    function ToImage : Integer;
+    function ToString : string;
+    procedure FromString(AString : string);
+  end;
+
+  {$REGION 'Constantes das imagens dos animais'}
+  const
+    k_boi      : Integer = 0;
+    k_cabra    : Integer = 1;
+    k_cachorro : Integer = 2;
+    k_cavalo   : Integer = 3;
+    k_coelho   : Integer = 4;
+    k_galinha  : Integer = 5;
+    k_gato     : Integer = 6;
+    k_pato     : Integer = 7;
+    k_porco    : Integer = 8;
+    k_vaca     : Integer = 9;
+  {$ENDREGION}
+
+implementation
+
+uses
+  StrUtils, SysUtils;
+
+{ TAnimaisHelper }
+
+procedure TAnimaisHelper.FromString(AString: string);
+begin
+  case AnsiIndexStr(UpperCase(AString),
+    ['BOI','CABRA','CACHORRO','CAVALO','COELHO','GALINHA','GATO','PATO','PORCO','VACA']) of
+    0 : Self := aniBoi;
+    1 : Self := aniCabra;
+    2 : Self := aniCachorro;
+    3 : Self := aniCavalo;
+    4 : Self := aniCoelho;
+    5 : Self := aniGalinha;
+    6 : Self := aniGato;
+    7 : Self := aniPato;
+    8 : Self := aniPorco;
+    9 : Self := aniVaca;
+    else
+      raise EAnimalNaoExiste.Create('[TAnimaisHelper] - Erro ao associar parâmetro');
+  end;
+end;
+
+function TAnimaisHelper.ToImage: Integer;
+begin
+  case Self of
+    aniBoi:      Result := k_boi;
+    aniCabra:    Result := k_cabra;
+    aniCachorro: Result := k_cachorro;
+    aniCavalo:   Result := k_cavalo;
+    aniCoelho:   Result := k_coelho;
+    aniGalinha:  Result := k_galinha;
+    aniGato:     Result := k_gato;
+    aniPato:     Result := k_pato;
+    aniPorco:    Result := k_porco;
+    aniVaca:     Result := k_vaca;
+    else
+      raise EImagemNaoCarregada.Create('[TAnimaisHelper] - Erro ao encontrar imagem');
+  end;
+end;
+
+function TAnimaisHelper.ToString: string;
+begin
+  Result := 'Você escolheu ';
+  case Self of
+    aniBoi:      Result := Result + 'um Boi!';
+    aniCabra:    Result := Result + 'uma Cabra!';
+    aniCachorro: Result := Result + 'um Cachorro!';
+    aniCavalo:   Result := Result + 'um Cavalo!';
+    aniCoelho:   Result := Result + 'um Coelho!';
+    aniGalinha:  Result := Result + 'uma Galinha!';
+    aniGato:     Result := Result + 'um Gato!';
+    aniPato:     Result := Result + 'um Pato!';
+    aniPorco:    Result := Result + 'um Porco!';
+    aniVaca:     Result := Result + 'uma Vaca!';
+    else
+      raise EMensagemNaoConcluida.Create('[TAnimaisHelper] - Erro ao gerar mensagem');
+  end;
+end;
+
+end.
