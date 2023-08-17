@@ -7,7 +7,7 @@ Esse sistema foi desenvolvido apenas para treinar tipos enumerados.
 Além disso, aproveitei a oportunidade para criar uma classe de exceções específicas para tratar os possíveis erros do sistema.
 
 **Enumerated**
-:
+
 It is a simple farm system that calls the animals through enumeration.
 
 This system was designed only to train enumerated types.
